@@ -1,0 +1,24 @@
+{
+    "name": "mongo_2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "db:migrate": "migrate-mongo up",
+        "start": "npm run db:migrate && nodemon index.js",
+        "dev": "npm run db:migrate && node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1",
+        "lodash": "^4.17.21",
+        "nodemon": "^2.0.18"
+    },
+    "devDependencies": {
+        "migrate-mongo": "^9.0.0",
+        "mongodb": "^4.7.0"
+    }
+}
