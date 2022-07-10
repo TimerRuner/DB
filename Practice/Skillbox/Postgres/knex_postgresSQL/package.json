@@ -1,0 +1,25 @@
+{
+    "name": "knex_postgres",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "db:migrate": "knex migrate:latest",
+        "start": "cross-env npm run db:migrate && node index.js",
+        "dev": "cross-env npm run db:migrate && nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.0.1",
+        "knex": "^2.1.0",
+        "nodemon": "^2.0.18",
+        "pg": "^8.7.3"
+    },
+    "dependencies": {
+        "express": "^4.18.1",
+        "lodash": "^4.17.21"
+    }
+}

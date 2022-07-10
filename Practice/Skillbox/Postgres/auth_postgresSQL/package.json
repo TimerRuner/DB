@@ -1,0 +1,26 @@
+{
+    "name": "with_cookie",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "db:migrate": "knex migrate:latest",
+        "start": "cross-env npm run db:migrate && node index.js",
+        "dev": "cross-env npm run db:migrate && nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1",
+        "nodemon": "^2.0.18",
+        "nunjucks": "^3.2.3"
+    },
+    "devDependencies": {
+        "cookie-parser": "^1.4.6",
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.0.1",
+        "knex": "^2.1.0",
+        "pg": "^8.7.3"
+    }
+}

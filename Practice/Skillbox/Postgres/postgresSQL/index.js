@@ -13,7 +13,10 @@ const client = new Client({
     await client.connect()
 
     try {
-        const res = await client.query("SELECT * FROM users")
+        const name = process.argv[2]
+        const res = await client.query("SELECT * FROM users WHERE name = $1", [
+            name,
+        ])
         console.log(res.rows)
     } catch (error) {
         console.log(error)

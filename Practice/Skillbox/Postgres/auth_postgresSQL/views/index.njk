@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>My books</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.14.3/css/uikit.min.css"/>
+    </head>
+    <body>
+        <section class="uk-container">
+            {% if user %}
+                <strong>User: {{user.username}}. <a href="/logout">Log out</a></strong>
+                <h3>My bouks count: {{user.books}}.</h3>
+                <p><button id="add-books" type="button">I've read another one!</button></p>
+            {% else %}
+            <form action="/login" method="POST" enctype="application/x-www-form-urlencoded">
+                <p><input type="text" name="username" class="uk-input"/></p>
+                <p><input type="password" name="password" class="uk-input"/></p>
+                {% if authError %}
+                    <div class="uk-alert uk-alert-danger">
+                        <p>Wrong username </p>
+                    </div>
+                {% endif %}
+                <p><button class="uk-button uk-button-primary" type="submit">Login</button></p>
+            </form>
+            {% endif %}
+        </section>
+        <script>
+            document.getElementById('add-books').addEventListener('click', () => {
+                fetch('/api/add-book', {method: 'post'}).then(() => {
+                    location.reload()
+                })
+            })
+        </script>
+    </body>
+</html>
